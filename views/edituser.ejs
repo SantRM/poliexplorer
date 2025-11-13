@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+
+    <title>Poliexplorer</title>
+
+    <!-- Scripts core CSS -->
+    <%- include('partials/css1') %>
+        <!-- Scripts core CSS -->
+
+</head>
+
+<body>
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+        <div class="preloader-inner">
+            <span class="dot"></span>
+            <div class="dots">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <%- include('partials/header') %>
+        <!-- ***** Header Area End ***** -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="main-info header-text">
+                        <div class="page-content">
+
+                            <!-- FORMULARIO DE EDITAR PERFIL -->
+                            <div class="edit-profile-section">
+                                <h2 style="color: black;">Editar perfil</h2>
+
+                                <!-- Foto de perfil circular centrada -->
+                                <div class="profile-photo-container">
+                                    <img src="/assets/images/Leonardo-01.jpg" alt="Foto de perfil" id="profile-photo">
+                                    <label for="photo-upload" class="change-photo-btn">Cambiar foto</label>
+                                    <input type="file" id="photo-upload" accept="image/*" style="display: none;">
+                                </div>
+                                <form action="/actualizarUsuario/<%= usuario.id %>" method="POST">
+                                    <!-- Nombre -->
+                                    <div class="form-group">
+                                        <label for="nombre">Nombre</label>
+                                        <input type="text" id="nombre" name="nombre" value="<%= usuario.nombre %>" class="form-control custom-input" required>
+                                    </div>
+
+                                    <!-- Email -->
+                                    <div class="form-group">
+                                        <label for="email">Correo electrónico</label>
+                                        <input type="email" id="email" name="email" value="<%= usuario.email %>" class="form-control custom-input" required>
+                                    </div>
+
+                                    <!-- Contraseña -->
+                                    <div class="form-group">
+                                        <label for="contrasena">Nueva contraseña</label>
+                                        <input type="password" id="contrasena" name="contrasena" class="form-control custom-input" placeholder="Dejar en blanco para no cambiar">
+                                    </div>
+
+                                    <!-- Rol -->
+                                    <div class="form-group">
+                                        <label for="rol">Rol</label>
+                                        <select id="rol" name="rol" class="form-select custom-input" required>
+                                            <option value="">Seleccione un rol</option>
+                                            <option value="estudiante" <%=usuario.rol==='estudiante' ? 'selected' : ''
+                                                %>>Estudiante</option>
+                                            <option value="profesor" <%=usuario.rol==='profesor' ? 'selected' : '' %>
+                                                >Profesor</option>
+                                        </select>
+                                    </div>
+
+                                    <!-- Botón -->
+                                    <div class="container">
+                                        <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
+                                        <a href="/profile" class="btn btn-primary mt-3">Cancelar</a>
+                                    </div>
+                                </form>
+
+
+                                <div class="instrucciones">
+                                    <h3 style="color: black;">Instrucciones para completar tu perfil</h3>
+                                    <p>
+                                        Por favor toma un momento para leer estas instrucciones antes de
+                                        empezar. Completar
+                                        tu perfil no solo te permitirá
+                                        personalizar tu experiencia en nuestra plataforma, sino que también
+                                        facilitará a
+                                        otros usuarios encontrarte y
+                                        conectar contigo en función de tu actividad profesional.
+                                        Cada campo es importante, Dale especial atencion a la decripcion de
+                                        tu experiencia
+                                        laboral,
+                                        ya que esto ayuda a los otros a entender mejor tu trayectoria
+                                        profesional y areas de
+                                        especialización. Tambien, asegurate de incluir una fotografia de
+                                        perfil reciente y
+                                        de buena
+                                        calidad para hacer tu perfil mas atractivo.
+                                    </p>
+                                </div>
+                            </div>
+                            <!-- FIN FORMULARIO -->
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        </div>
+
+        <!-- ***** Footer Area Start ***** -->
+        <%- include('partials/footer') %>
+            <!-- ***** Footer Area Start ***** -->
+
+
+            <!-- ***** Scripts Area js ***** -->
+            <%- include('partials/scripts1') %>
+                <!-- ***** Scripts Area js ***** -->
+
+
+</body>
+
+</html>

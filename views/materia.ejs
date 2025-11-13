@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>Poliexplorer</title>
+
+    <!-- Scripts core CSS --> 
+    <%- include('partials/css1') %>
+    <!-- Scripts core CSS -->
+
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <%- include('partials/header') %>
+  <!-- ***** Header Area End ***** -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="page-content">
+
+          <!-- ***** Featured Start ***** -->
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="feature-banner header-text">
+                <div class="row">
+                  <div class="col-lg-4">
+                    <img src="/assets/images/CalculoDif.jpg" alt="" style="border-radius: 23px;">
+                  </div>
+                  <div class="col-lg-8">
+                    <div class="thumb">
+                      <img src="/assets/images/vidCalDif.jpg" alt="" style="border-radius: 23px;">
+                      <a href="https://www.youtube.com/watch?v=ZSYQ13iMbYA" target="_blank"><i
+                          class="fa fa-play"></i></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!-- ***** Featured End ***** -->
+
+          <!-- ***** Details Start ***** -->
+          <div class="game-details">
+            <div class="row">
+              <div class="col-lg-12">
+                <h2>Differential Calculus Details</h2>
+              </div>
+              <div class="col-lg-12">
+                <div class="content">
+                  <div class="row">
+                    <div class="col-lg-6">
+                      <div class="left-info">
+                        <div class="left">
+                          <h4>Credits</h4>
+                          <span>Semester</span>
+                        </div>
+                        <ul>
+                          <li><i class="fa fa-star"></i> 3</li>
+                          <li><i class="fa fa-server"></i> 1</li>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-6">
+                      <div class="right-info">
+                        <ul>
+                          <h4>Requirements: </h4>
+                          <a style="color: aliceblue;">No other subject requirements are needed to be able to take the course.</a>
+                        </ul>
+                      </div>
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="/assets/images/CDifdetails-01.jpg" alt=""
+                        style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="/assets/images/CDifdetails-02.jpg" alt=""
+                        style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-4">
+                      <img src="/assets/images/CDifdetails-03.jpg" alt=""
+                        style="border-radius: 23px; margin-bottom: 30px;">
+                    </div>
+                    <div class="col-lg-12">
+                      <div class="details-section">
+                        <li><strong>About Differential Calculus</strong></li>
+                        <p>
+                          Differential calculus is a branch of infinitesimal calculus that focuses on the study of the
+                          instantaneous change of functions, specifically through the derivative. This derivative
+                          measures the rate of change of a function at a specific point and is fundamental to
+                          understanding the behavior of functions in their environment.
+                        </p>
+                        <li><strong>Key Concepts in Differential Calculus:</strong></li>
+                        <ul>
+                          <li><strong>Function:</strong> A mathematical relationship that assigns each element of one
+                            set (domain) to a unique element of another set (codomain).</li>
+                          <li><strong>Limit:</strong> A value that a function approaches as its variable approaches a
+                            specific point.</li>
+                          <li><strong>Derivative:</strong> The instantaneous rate of change of a function at a point,
+                            representing the slope of the tangent line to the graph of the function at that point.</li>
+                          <li><strong>Differentiation Rules:</strong> Formulas that allow you to calculate the
+                            derivative of different types of functions, such as polynomials, trigonometric functions,
+                            exponential functions, etc.</li>
+                          <li><strong>Applications:</strong> Differential calculus is used in various fields, including
+                            physics (to study motion and velocity), economics (to optimize processes), biology (to model
+                            population growth), and others.</li>
+                        </ul>
+                      </div>
+                    </div>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="other-games">
+          <div class="row">
+            <div class="col-lg-12 mb-4">
+              <div class="heading-section">
+                <h4><em>Materials</em> available</h4>
+              </div>
+                <% if (hayMateriales) { %>
+                    <div class="row g-4">
+                      <div class="other-games">
+                          <div class="row">
+                              <div class="col-lg-12 mb-4">
+                                  <div class="row">
+                                      <!-- VIDEOS -->
+                                      <div class="col-lg-6">
+                                        <li><strong>Videos:</strong></li>
+                                        <% materiales.filter(m => m.tipo === 'Video (URL)').forEach(video => { %>
+                                          <div class="material-item">
+                                            <p><%= video.nombre %> - <a href="<%= video.contenido %>" target="_blank">Ver video</a></p>
+                                          </div>
+                                        <% }) %>
+                                      </div>
+                                    
+                                    <!-- DOCUMENTOS -->
+                                      <div class="col-lg-6">
+                                        <li><strong>Artículos:</strong></li>
+                                        <% materiales.filter(m => m.tipo === 'Documento').forEach(doc => { %>
+                                          <div class="material-item">
+                                            <p><%= doc.nombre %> - 
+                                              <a href="/<%= doc.contenido %>" target="_blank">Ver PDF</a>
+                                            </p>
+                                          </div>
+                                        <% }) %>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                    </div>
+                <% } else { %>
+                  <div class="text-center mt-4">
+                    <p style="color: gray;">No tienes materiales disponibles aún.</p>
+                  </div>
+                <% } %>
+            </div>
+          </div>
+        </div>
+
+
+
+        <!-- ***** Other Start ***** -->
+        <div class="other-games">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em>Teachers</em> Area</h4>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item">
+                <a href="teacher details.html">
+                  <img src="/assets/images/Leonardo-01.jpg" alt="" class="templatemo-item">
+                </a>
+                <h4>Leonardo Muñoz</h4>
+                <span>number of reviews</span>
+                <ul>
+                  <li><i class="fa fa-star"></i> 4.8</li>
+                  <li><i class="fa fa-users"></i> 1.1k</li>
+                </ul>
+              </div>
+            </div>
+            <div class="col-lg-6">
+              <div class="item">
+                <a href="">
+                  <img src="/assets/images/Francisco-02.jpg" alt="" class="templatemo-item">
+                </a>
+                <h4>Francisco Silva</h4>
+                <span>number of reviews</span>
+                <ul>
+                  <li><i class="fa fa-star"></i> 3.5</li>
+                  <li><i class="fa fa-users"></i> 1.1k</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- ***** Other End ***** -->
+        
+        <div class="other-games">
+          <div class="row">
+            <div class="col-lg-12">
+              <div class="heading-section">
+                <h4><em>Reseñas</em> Calificación</h4>
+              </div>
+            </div>
+            <div class="col-lg-12">
+              <div id="reviews">
+                <div class="review-section">
+                  <h5>Materia: Differential Calculus</h5>
+                  <div class="rating">
+                    <span>Calificación:</span>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                  </div>
+                  <p><strong>Reseña de estudiante:</strong> "Este curso me ayudó a comprender los conceptos básicos de
+                    cálculo diferencial de una manera clara y práctica. ¡Altamente recomendado!"</p>
+                </div>
+                <div class="review-section">
+                  <h5>Materia: Differential Calculus</h5>
+                  <div class="rating">
+                    <span>Calificación:</span>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star"></i>
+                    <i class="fa fa-star-half-alt"></i>
+                    <i class="fa fa-star-o"></i>
+                  </div>
+                  <p><strong>Reseña de estudiante:</strong> "El curso es bueno, pero algunos temas podrían explicarse
+                    con más detalle. Aun así, es útil para principiantes."</p>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-12"> <br>
+              <div class="add-review-section">
+                <h5 style="color: black;">Agregar Reseña</h5>
+                <form id="addReviewForm">
+                  <div class="form-group">
+                    <label for="reviewText">Reseña:</label>
+                    <textarea id="reviewText" class="form-control" rows="3"
+                      placeholder="Escribe tu reseña aquí"></textarea>
+                  </div> <br>
+                  <div class="form-group">
+                    <label for="reviewRating">Calificación:</label>
+                    <select id="reviewRating" class="form-control">
+                      <option value="5">5 Estrellas</option>
+                      <option value="4.5">4.5 Estrellas</option>
+                      <option value="4">4 Estrellas</option>
+                      <option value="3.5">3.5 Estrellas</option>
+                      <option value="3">3 Estrellas</option>
+                      <option value="2.5">2.5 Estrellas</option>
+                      <option value="2">2 Estrellas</option>
+                      <option value="1.5">1.5 Estrellas</option>
+                      <option value="1">1 Estrella</option>
+                      <option value="0.5">0.5 Estrellas</option>
+                    </select>
+                  </div> <br>
+                  <button type="button" class="btn btn-primary" style="background-color: #186843 !important; border-color: #186843;" onclick="addReview()">Agregar Reseña</button>
+                  <br><br>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <script>
+          function addReview() {
+            const reviewText = document.getElementById('reviewText').value;
+            const reviewRating = document.getElementById('reviewRating').value;
+
+            if (!reviewText || !reviewRating) {
+              alert('Por favor, completa todos los campos.');
+              return;
+            }
+
+            const reviewsContainer = document.getElementById('reviews');
+            const newReview = document.createElement('div');
+            newReview.classList.add('review-section');
+
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+              if (i <= Math.floor(reviewRating)) {
+                stars += '<i class="fa fa-star"></i>';
+              } else if (i - reviewRating < 1) {
+                stars += '<i class="fa fa-star-half-alt"></i>';
+              } else {
+                stars += '<i class="fa fa-star-o"></i>';
+              }
+            }
+
+            newReview.innerHTML = `
+          <h5>Materia: Differential Calculus</h5>
+          <div class="rating">
+            <span>Calificación:</span>
+            ${stars}
+          </div>
+          <p><strong>Reseña de estudiante:</strong> "${reviewText}"</p>
+        `;
+
+            reviewsContainer.appendChild(newReview);
+
+            document.getElementById('addReviewForm').reset();
+          }
+        </script>
+
+
+
+      </div>
+    </div>
+  </div>
+  </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <%- include('partials/footer') %>
+    <!-- ***** Footer Area Start ***** -->
+
+
+    <!-- ***** Scripts Area js ***** -->
+    <%- include('partials/scripts1') %>
+    <!-- ***** Scripts Area js ***** -->
+
+
+</body>
+
+</html>

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>PoliExplorer</title>
+  <link rel="stylesheet" href="/assets/css/login-register.css">
+</head>
+<body>
+  <div class="overlay"></div>
+  <div class="full-page">
+    <div class="login-page">
+      <div class="form-box">
+
+        <div class="form-title">
+          <h2>Registro</h2>
+        </div>
+
+        <form id="register" class="input-group-register" action="/saveUsuarios" method="post" onsubmit="return validarFormulario()">
+
+          <!-- Nombre -->
+          <input type="text" class="input-field" id="nombre" name="nombre" placeholder="Nombre Completo" required>
+
+          <!-- Correo -->
+          <input type="email" class="input-field" id="email" name="email" placeholder="Correo electrónico" required>
+          <% if (typeof errorMsg !== 'undefined') { %>
+            <div class="error-msg"><%= errorMsg %></div>
+          <% } %>
+
+          <!-- Rol -->
+          <select id="rol" name="rol" class="input-field" required>
+            <option value="">Seleccione un rol</option>
+            <option value="estudiante">Estudiante</option>
+            <option value="profesor">Profesor</option>
+          </select>
+
+          <!-- Contraseñas -->
+          <input type="password" name="password1" class="input-field" id="contrasena1" placeholder="Ingresa una contraseña" required>
+          <input type="password" name="password2" class="input-field" id="contrasena2" placeholder="Confirma la contraseña" required>
+
+          <% if (typeof error4 !== 'undefined') { %>
+            <div class="error-msg"><%= error4 %></div>
+          <% } %>
+
+          <!-- Términos -->
+          <div class="terms">
+            <input type="checkbox" class="check-box" required>
+            <span>Acepto los términos y condiciones</span>
+          </div>
+
+          <!-- Botones -->
+          <button type="submit" class="submit-btn">Registrar</button>
+          <a href="/" class="submit-btn cancel">Cancelar</a>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script src="/assets/js/validarusuarionew.js"></script>
+  <script src="/assets/js/profileform.js"></script>
+</body>
+</html>

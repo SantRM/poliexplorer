@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/assets/css/recpswrd.css">
+  <title>Recuperar contraseña  </title>
+  <!-- SweetAlert2 CDN -->
+
+</head>
+<body>
+  <h2>Recuperar contraseña</h2>
+
+  <% if (exito) { %>
+    <p><%= exito %></p>
+  <% } else { %>
+      <form id="recuperarForm" action="/recuperar" method="POST">
+        <label for="email">Correo electrónico:</label>
+        <input type="email" name="email" id="email" required>
+        <button class="btn" type="submit">Enviar enlace de recuperación</button>
+        <a class="btn" href="/logine">Calcelar</a>
+      </form>
+    <% } %> 
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="/assets/js/valrec.js"></script>
+    <!-- SweetAlert2 -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <% if (error) { %>
+    <script>
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: '<%= error %>',
+      });
+    </script>
+    <% } %>
+
+</body>
+</html>

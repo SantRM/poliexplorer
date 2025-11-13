@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet">
+
+    <title>Cyborg - Awesome HTML5 Template</title>
+
+    <!-- Scripts core CSS -->
+    <%- include('partials/css1') %>
+    <!-- Scripts core CSS -->
+
+  </head>
+
+  <body>
+
+    <!-- ***** Preloader Start ***** -->
+    <div id="js-preloader" class="js-preloader">
+      <div class="preloader-inner">
+        <span class="dot"></span>
+        <div class="dots">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+    </div>
+    <!-- ***** Preloader End ***** -->
+
+    <!-- ***** Header Area Start ***** -->
+    <%- include('partials/header') %>
+    <!-- ***** Header Area End ***** -->
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="page-content">
+
+            <!-- ***** Banner Start ***** -->
+            <div class="row">
+              <div class="col-lg-12">
+                <div class="main-profile">
+                  <div class="row">
+                    <div class="col-lg-12">
+                      <div class="main-info header-text">
+                        <div class="row">
+                          <div class="semestre">
+                            <h3><%= nombreSemestre %> Semestre</h3>
+                            <% if (materias && materias.length > 0) { %>
+                            <div class="info-row">
+                              <!-- Créditos -->
+                              <div class="info-box">
+                                <img src="/assets/images/sm1.jpg"
+                                  alt="créditos">
+                              </div>
+                              <div class="info-box">
+                                <span class="info-text"><%= totalCreditos %>
+                                  Créditos</span>
+                              </div>
+
+                              <!-- Nivel -->
+                              <div class="info-box">
+                                <img src="/assets/images/sm3.jpg" alt="nivel">
+                              </div>
+                              <div class="info-box">
+                                <span class="info-text"><%= dificultad %></span>
+                              </div>
+
+                              <!-- Horas -->
+                              <div class="info-box">
+                                <img src="/assets/images/sm2.jpg" alt="horas">
+                              </div>
+                              <div class="info-box">
+                                <span class="info-text"><%= totalHoras %>
+                                  Horas/Semana</span>
+                              </div>
+                            </div>
+                          </div>
+
+                          <div class="col-lg-12">
+                            <div class="heading-section">
+                              <h4 style="text-align: center;">Asignaturas</h4>
+                              <br>
+                            </div>
+                          </div>
+                          <% materias.forEach(materia => { %>
+                          <div class="col-lg-4 col-sm-6 d-flex mb-3">
+                            <div class="item2 w-100">
+                              <div class="thumb">
+                                <a href="/materia?id=4">
+                                  <div class="card-box">
+                                    <div
+                                      class="card-header d-flex justify-content-between align-items-center">
+                                      <h5 class="titulo"><%= materia.nombre
+                                        %></h5>
+                                      <span class="numero"><%=
+                                        materia.cantidad_creditos
+                                        %></span>
+                                      <!-- Puedes reemplazar 2 por cualquier valor -->
+                                    </div>
+                                    <p class="descripcion"><%=
+                                      materia.descripcion %></p>
+                                  </div>
+                                </a>
+                              </div>
+                            </div>
+                          </div>
+                          <% }) %>
+                          <% } else { %>
+                          <div class="col-12">
+                            <p style="text-align: center;">No se encontraron materias para este
+                              semestre.</p>
+                          </div>
+                          <% } %>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ***** Banner End ***** -->
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ***** Footer Area Start ***** -->
+    <%- include('partials/footer') %>
+    <!-- ***** Footer Area Start ***** -->
+
+    <!-- ***** Scripts Area js ***** -->
+    <%- include('partials/scripts1') %>
+    <!-- ***** Scripts Area js ***** -->
+
+  </body>
+
+</html>

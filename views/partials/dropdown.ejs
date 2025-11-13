@@ -1,0 +1,64 @@
+<style>
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    z-index: 1;
+  }
+
+  .dropdown-content.show {
+    display: block;
+  }
+
+  .dropdown-content a {
+    padding: 12px 16px;
+    display: block;
+    text-decoration: none;
+    color: black;
+  }
+
+  .dropdown-content a:hover {
+    background-color: #ddd;
+  }
+
+  .dropdown {
+    position: relative;
+    display: inline-block;
+  }
+</style>
+
+<div class="dropdown" id="miDropdown">
+  <button class="dropdown-button" onclick="toggleDropdown()">Semestres</button>
+  <div class="dropdown-content" id="dropdownMenu">
+    <% for (let i = 1; i <= 10; i++) { %>
+      <a href="javascript:void(0);" onclick="seleccionarSemestre('<%= i %>')">Semestre <%= i %></a>
+
+    <% } %>
+  </div>
+</div>
+
+<script>
+  function toggleDropdown() {
+    document.getElementById('dropdownMenu').classList.toggle('show');
+  }
+
+  
+  function seleccionarSemestre(semestre) {
+    semestre = parseInt(semestre);
+    window.location.href = '/semestre1?semestre=' + semestre;
+  }
+
+
+
+
+  // Cierra el dropdown si se hace clic fuera
+  window.addEventListener('click', function(e) {
+    if (!e.target.matches('.dropdown-button')) {
+      const dropdown = document.getElementById('dropdownMenu');
+      if (dropdown.classList.contains('show')) {
+        dropdown.classList.remove('show');
+      }
+    }
+  });
+</script>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="/assets/css/recpswrd.css">
+        <!-- SweetAlert2 CDN -->
+        <title>Restablecer contraseña</title>
+    </head>
+    <body>
+        <h2>Restablecer contraseña</h2>
+        <% if (!error && !exito) { %>
+            <form id="resetForm" action="/restablecer/<%= token %>" method="POST">
+                <label>Nueva contraseña:</label>
+                <input type="password" name="password1" id="password1" required>
+                <br>
+                <label>Confirma contraseña:</label>
+                <input type="password" name="password2" id="password2" required>
+                <br>
+                <button class="btn" type="submit">Cambiar contraseña</button>
+            </form>
+        <% } else { %>
+                <div class="si">
+                <% if (error) { %>            
+                <p><%= error %></p>
+                <% } %>
+                <% if (exito) { %>
+                <p><%= exito %></p>
+                <% } %>
+                    <a class="btn" href="/logine">Volver</a>
+            <% } %>
+            </div>
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="/assets/js/valres.js"></script>
+    </body>
+</html>

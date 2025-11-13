@@ -1,0 +1,88 @@
+/* public/css/formularios.css */
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f4f6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+form {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+form a {
+  width: 95% !important;
+}
+
+
+form a:hover{
+  background-color: #145537;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #111827;
+  margin-right: 25px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 95%;
+  padding: 10px;
+  margin: 0.5rem 0 1rem 0;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+p {
+  text-align: center;
+  margin-bottom: 0.7rem;
+  font-family: "Times New Roman", Times, serif;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+
+.si {
+    background-color: transparent;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 400px;
+}
+
+.si a {
+  width: 95% !important;
+}
+
+.btn {
+  display: inline-block;
+  width: 100%;
+  padding: 10px;
+  background-color: #186843;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-bottom: 15px;
+}
+
+.btn:hover {
+  background-color: #145537;
+}
