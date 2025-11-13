@@ -25,7 +25,8 @@ app.use((req, res, next) => {
 
 // Verificar expiración de sesión (opcional)
 app.use((req, res, next) => {
-  if (req.session && req.session.usuario && req.session.cookie.expires < Date.now()) {
+  if (req.session?.usuario && req.session.cookie.expires && req.session.cookie.expires.getTime() < Date.now())
+ {
     req.session.destroy(err => {
       if (err) console.error('Error al destruir la sesión:', err);
       return res.redirect('/login');
