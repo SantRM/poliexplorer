@@ -16,7 +16,7 @@ CREATE TABLE usuarios (
     rol ENUM('estudiante', 'profesor') NOT NULL,
     fecha_creacion TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     token_recuperacion VARCHAR(100),
-    token_expira BIGINT;
+    token_expira BIGINT
 
 );
 

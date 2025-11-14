@@ -2,10 +2,11 @@ require("dotenv").config();
 const mysql = require("mysql2");
 
 const conexion = mysql.createConnection({
-  host: process.env.DB_HOST,     // antes: 'localhost'
-  user: process.env.DB_USER,     // antes: 'root'
-  password: process.env.DB_PASSWORD, // antes: ''
-  database: process.env.DB_NAME  // antes: 'poliexplorer'
+  host: process.env.DB_HOST,
+  port: process.env.DB_PORT, // IMPORTANTE para Railway
+  user: process.env.DB_USER,
+  password: process.env.DB_PASS,
+  database: process.env.DB_NAME
 });
 
 conexion.connect((err) => {
